@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#25252d",
+                    "on-tertiary-container": "#5a0027",
+                    "outline": "#76747b",
+                    "on-secondary-fixed-variant": "#593ca6",
+                    "tertiary-container": "#fe81a4",
+                    "on-tertiary-fixed": "#380016",
+                    "inverse-surface": "#fcf8ff",
+                    "surface-container-lowest": "#000000",
+                    "primary-dim": "#8a4cfc",
+                    "on-error": "#490013",
+                    "on-background": "#f9f5fd",
+                    "primary-container": "#b28cff",
+                    "outline-variant": "#48474d",
+                    "primary-fixed-dim": "#a67aff",
+                    "tertiary-dim": "#f17799",
+                    "surface-container-low": "#131319",
+                    "surface-container": "#19191f",
+                    "tertiary": "#ff97b2",
+                    "secondary": "#a88cfb",
+                    "on-tertiary": "#6a0a31",
+                    "surface-tint": "#bd9dff",
+                    "secondary-container": "#4f319c",
+                    "secondary-fixed-dim": "#ccbaff",
+                    "error": "#ff6e84",
+                    "on-secondary": "#260069",
+                    "on-tertiary-fixed-variant": "#711036",
+                    "primary-fixed": "#b28cff",
+                    "on-surface": "#f9f5fd",
+                    "error-container": "#a70138",
+                    "on-error-container": "#ffb2b9",
+                    "tertiary-fixed": "#ff8eac",
+                    "on-secondary-fixed": "#3c1989",
+                    "on-secondary-container": "#d7c8ff",
+                    "on-primary-fixed": "#000000",
+                    "surface-variant": "#25252d",
+                    "surface-bright": "#2c2b33",
+                    "inverse-on-surface": "#55545b",
+                    "secondary-fixed": "#d8caff",
+                    "surface-container-high": "#1f1f26",
+                    "inverse-primary": "#742fe5",
+                    "error-dim": "#d73357",
+                    "background": "#0e0e13",
+                    "on-primary-container": "#2e006c",
+                    "tertiary-fixed-dim": "#f77c9e",
+                    "surface-dim": "#0e0e13",
+                    "secondary-dim": "#a88cfb",
+                    "on-primary": "#3c0089",
+                    "on-primary-fixed-variant": "#390083",
+                    "primary": "#bd9dff",
+                    "surface": "#0e0e13",
+                    "on-surface-variant": "#acaab1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #0e0e13; color: #f9f5fd; font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .editor-container::-webkit-scrollbar { width: 8px; }
+        .editor-container::-webkit-scrollbar-track { background: #131319; }
+        .editor-container::-webkit-scrollbar-thumb { background: #25252d; border-radius: 4px; }
+        .editor-container::-webkit-scrollbar-thumb:hover { background: #48474d; }
+        .glass-panel { backdrop-filter: blur(20px); background: rgba(37, 37, 45, 0.4); }
+    </style>
+</head>
+<body class="h-screen overflow-hidden flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 py-3 bg-[#0e0e13]/80 backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_20px_rgba(189,157,255,0.05)]">
+<div class="flex items-center gap-6">
+<button class="hover:bg-white/5 p-2 rounded-full transition-all">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<div class="flex items-center gap-3">
+<input class="bg-transparent border-none focus:ring-0 text-white font-bold text-lg p-0 w-auto tracking-tight" type="text" value="Senior_Software_Engineer_2024"/>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">edit</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 border border-outline-variant text-on-surface text-sm font-bold uppercase tracking-widest hover:bg-white/5 transition-all">
+                Export PDF
+            </button>
+<button class="px-6 py-2 bg-primary text-on-primary-fixed text-sm font-bold uppercase tracking-widest hover:shadow-[0_0_15px_#bd9dff] transition-all">
+                Save
+            </button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-primary/20 ml-2">
+<img alt="User Avatar" data-alt="close-up portrait of a professional engineer with a friendly expression in a modern high-key studio lighting environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLO2v9T75m83Y3VMZ2onXMkovToirKt4bNgJjdLmnSaC7DaqbToNeZm6nyT3F8ugwo1yRYYiDVMDQ5iahw7Qvc7LTUwsMQDZBZcKk4lhFbmUytUAXeUTVfD9syoYQFLo7Gg9Uj5W10M0zW-1frtP2gl9LWsy2kQ1_MR0dAntVDqTBM0jVBIbvMwhxSIe7XWGEZ3A4e80TKDqd4ZgzKpqy7GdgV0Fy-CfzAVZmAjvkgW_DYewpGlNFnw2cpuXDEEJCzMWbCvddbBsk"/>
+</div>
+</div>
+</header>
+<main class="flex-1 mt-16 flex overflow-hidden">
+<!-- Left Panel: Editor & AI -->
+<section class="w-1/2 flex flex-col border-r border-white/5 bg-surface-container-low">
+<!-- LaTeX Editor Section (80%) -->
+<div class="h-[80%] flex flex-col">
+<!-- Editor Tabs -->
+<div class="flex bg-surface-container-lowest border-b border-white/5 px-4 pt-2">
+<button class="px-6 py-3 text-[#bd9dff] border-b-2 border-[#bd9dff] text-xs font-mono font-bold">LaTeX Source</button>
+<button class="px-6 py-3 text-gray-500 hover:text-gray-200 text-xs font-mono transition-colors">CV Mode</button>
+<button class="px-6 py-3 text-gray-500 hover:text-gray-200 text-xs font-mono transition-colors">Cover Letter</button>
+</div>
+<!-- Code Mirror Style Editor -->
+<div class="flex-1 editor-container overflow-y-auto p-6 font-mono text-sm leading-relaxed bg-surface-container-lowest">
+<div class="flex gap-4">
+<div class="text-outline-variant select-none text-right w-8">
+                            1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16
+                        </div>
+<div class="flex-1">
+<span class="text-[#bd9dff]">\documentclass</span><span class="text-white">{resumestyle}</span><br/>
+<span class="text-[#bd9dff]">\begin</span><span class="text-white">{document}</span><br/>
+<br/>
+<span class="text-[#a88cfb]">% Header Information</span><br/>
+<span class="text-[#bd9dff]">\name</span><span class="text-white">{Alex Rivera}</span><br/>
+<span class="text-[#bd9dff]">\contact</span><span class="text-white">{San Francisco, CA | 555-0123}</span><br/>
+<br/>
+<span class="text-[#bd9dff]">\section</span><span class="text-white">{Experience}</span><br/>
+<span class="text-[#bd9dff]">\entry</span><span class="text-white">{Senior Software Engineer}{Meta}{2021--Present}</span><br/>
+<span class="text-[#ff97b2]">\itemize</span><span class="text-white">{</span><br/>
+<span class="ml-4 text-white">   \item Spearheaded migration of legacy services to Rust.</span><br/>
+<span class="ml-4 text-white">   \item Optimized query latency by 40% across 50 nodes.</span><br/>
+<span class="ml-4 text-white">   \item Mentored 12 junior engineers in distributed systems.</span><br/>
+<span class="text-white">}</span><br/>
+<br/>
+<span class="text-[#bd9dff]">\section</span><span class="text-white">{Technical Skills}</span><br/>
+<span class="text-[#bd9dff]">\skills</span><span class="text-white">{Rust, TypeScript, Kubernetes, AWS, PostgreSQL}</span>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Chat Section (20%) -->
+<div class="h-[20%] border-t border-white/5 p-6 bg-surface-container flex flex-col gap-4">
+<div class="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium whitespace-nowrap hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+                        ✨ Tailor to JD
+                    </button>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-highest border border-white/5 text-on-surface-variant text-xs font-medium whitespace-nowrap hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+                        Improve Bullet Points
+                    </button>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-highest border border-white/5 text-on-surface-variant text-xs font-medium whitespace-nowrap hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined text-sm">verified</span>
+                        Check Compliance
+                    </button>
+</div>
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl blur opacity-30 group-focus-within:opacity-100 transition duration-500"></div>
+<div class="relative flex items-center bg-surface-container-lowest rounded-xl border border-white/10 p-1">
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm text-on-surface px-4 py-3 placeholder:text-outline-variant font-mono" placeholder="Paste the job description here or ask AI to edit..." type="text"/>
+<button class="p-2 bg-primary text-on-primary-fixed rounded-lg mr-1 hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Live Preview -->
+<section class="w-1/2 bg-background flex flex-col items-center justify-start p-12 overflow-y-auto relative">
+<!-- A4 Document -->
+<div class="bg-white w-[595px] min-h-[842px] shadow-[0_40px_80px_rgba(0,0,0,0.6)] p-12 flex flex-col text-[#19191f] mb-20 origin-top scale-[0.9]">
+<header class="text-center mb-8">
+<h1 class="text-3xl font-bold tracking-tight mb-2">ALEX RIVERA</h1>
+<p class="text-xs text-gray-600 uppercase tracking-widest">San Francisco, CA • 555-0123 • alex.rivera@email.com</p>
+</header>
+<div class="mb-6">
+<h2 class="text-sm font-bold border-b-2 border-gray-900 pb-1 mb-3 uppercase tracking-wider">Professional Experience</h2>
+<div class="mb-4">
+<div class="flex justify-between items-baseline mb-1">
+<span class="font-bold text-md">Senior Software Engineer</span>
+<span class="text-xs text-gray-500 italic">2021 – Present</span>
+</div>
+<div class="text-sm font-semibold text-gray-800 mb-2">Meta, Infrastructure Team</div>
+<ul class="list-disc list-outside ml-4 text-xs text-gray-700 space-y-1">
+<li>Spearheaded migration of legacy performance monitoring services from Python to Rust, reducing memory footprint by 70%.</li>
+<li>Optimized global query latency by 40% through implementation of a custom caching layer across 50+ distributed nodes.</li>
+<li>Mentored 12 junior engineers in distributed systems design, improving team velocity by 25%.</li>
+</ul>
+</div>
+</div>
+<div class="mb-6">
+<h2 class="text-sm font-bold border-b-2 border-gray-900 pb-1 mb-3 uppercase tracking-wider">Education</h2>
+<div class="flex justify-between items-baseline">
+<div>
+<span class="font-bold text-sm">B.S. in Computer Science</span>
+<span class="text-xs text-gray-800">, Stanford University</span>
+</div>
+<span class="text-xs text-gray-500 italic">2016 – 2020</span>
+</div>
+</div>
+<div>
+<h2 class="text-sm font-bold border-b-2 border-gray-900 pb-1 mb-3 uppercase tracking-wider">Technical Skills</h2>
+<div class="text-xs text-gray-700 leading-relaxed">
+<span class="font-bold">Languages:</span> Rust, TypeScript, Go, Python, C++, SQL <br/>
+<span class="font-bold">Frameworks:</span> React, Node.js, Actix-web, TensorFlow <br/>
+<span class="font-bold">Infrastructure:</span> Kubernetes, AWS, PostgreSQL, Docker, Redis
+                    </div>
+</div>
+</div>
+<!-- Bottom Preview Controls -->
+<div class="fixed bottom-8 left-[75%] -translate-x-1/2 glass-panel border border-white/10 rounded-full px-6 py-3 flex items-center gap-6 shadow-2xl">
+<div class="flex items-center gap-4 border-r border-white/10 pr-6">
+<button class="hover:bg-white/10 p-1 rounded-full transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">remove</span>
+</button>
+<span class="text-xs font-mono text-on-surface">90%</span>
+<button class="hover:bg-white/10 p-1 rounded-full transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">add</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<button class="hover:bg-white/10 p-1 rounded-full transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">chevron_left</span>
+</button>
+<span class="text-xs font-mono text-on-surface">Page 1 of 1</span>
+<button class="hover:bg-white/10 p-1 rounded-full transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">chevron_right</span>
+</button>
+</div>
+<button class="pl-4 hover:text-primary transition-all">
+<span class="material-symbols-outlined">fullscreen</span>
+</button>
+</div>
+</section>
+</main>
+<!-- SideNav (Minimized/Floating Anchor) -->
+<nav class="fixed left-0 top-1/2 -translate-y-1/2 bg-surface-container border border-white/5 rounded-r-xl py-4 flex flex-col gap-6 px-3 shadow-xl">
+<button class="text-[#bd9dff] bg-[#bd9dff]/10 p-2 rounded-lg" title="Editor">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+</button>
+<button class="text-gray-500 hover:text-white p-2 transition-all" title="AI Insights">
+<span class="material-symbols-outlined">psychology</span>
+</button>
+<button class="text-gray-500 hover:text-white p-2 transition-all" title="Tailoring">
+<span class="material-symbols-outlined">tune</span>
+</button>
+<button class="text-gray-500 hover:text-white p-2 transition-all" title="Settings">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rescume - Sign In</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-highest": "#25252d",
+                "on-tertiary-container": "#5a0027",
+                "outline": "#76747b",
+                "on-secondary-fixed-variant": "#593ca6",
+                "tertiary-container": "#fe81a4",
+                "on-tertiary-fixed": "#380016",
+                "inverse-surface": "#fcf8ff",
+                "surface-container-lowest": "#000000",
+                "primary-dim": "#8a4cfc",
+                "on-error": "#490013",
+                "on-background": "#f9f5fd",
+                "primary-container": "#b28cff",
+                "outline-variant": "#48474d",
+                "primary-fixed-dim": "#a67aff",
+                "tertiary-dim": "#f17799",
+                "surface-container-low": "#131319",
+                "surface-container": "#19191f",
+                "tertiary": "#ff97b2",
+                "secondary": "#a88cfb",
+                "on-tertiary": "#6a0a31",
+                "surface-tint": "#bd9dff",
+                "secondary-container": "#4f319c",
+                "secondary-fixed-dim": "#ccbaff",
+                "error": "#ff6e84",
+                "on-secondary": "#260069",
+                "on-tertiary-fixed-variant": "#711036",
+                "primary-fixed": "#b28cff",
+                "on-surface": "#f9f5fd",
+                "error-container": "#a70138",
+                "on-error-container": "#ffb2b9",
+                "tertiary-fixed": "#ff8eac",
+                "on-secondary-fixed": "#3c1989",
+                "on-secondary-container": "#d7c8ff",
+                "on-primary-fixed": "#000000",
+                "surface-variant": "#25252d",
+                "surface-bright": "#2c2b33",
+                "inverse-on-surface": "#55545b",
+                "secondary-fixed": "#d8caff",
+                "surface-container-high": "#1f1f26",
+                "inverse-primary": "#742fe5",
+                "error-dim": "#d73357",
+                "background": "#0e0e13",
+                "on-primary-container": "#2e006c",
+                "tertiary-fixed-dim": "#f77c9e",
+                "surface-dim": "#0e0e13",
+                "secondary-dim": "#a88cfb",
+                "on-primary": "#3c0089",
+                "on-primary-fixed-variant": "#390083",
+                "primary": "#bd9dff",
+                "surface": "#0e0e13",
+                "on-surface-variant": "#acaab1"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Inter"],
+                "mono": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0e0e13;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(25, 25, 31, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(189, 157, 255, 0.15);
+        }
+        .bg-glow {
+            background: radial-gradient(circle at center, rgba(189, 157, 255, 0.12) 0%, rgba(14, 14, 19, 0) 70%);
+        }
+    </style>
+</head>
+<body class="bg-surface-dim text-on-surface min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
+<!-- Background Radial Glow -->
+<div class="absolute inset-0 bg-glow pointer-events-none"></div>
+<!-- Content Canvas -->
+<main class="w-full max-w-[440px] z-10">
+<!-- Identity Section -->
+<div class="flex flex-col items-center mb-10 text-center">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h1 class="text-3xl font-black tracking-tighter text-on-surface">Rescume</h1>
+</div>
+<p class="text-on-surface-variant text-lg font-medium tracking-tight">Tailor your resume for every job, in seconds.</p>
+</div>
+<!-- Auth Card -->
+<div class="glass-card p-8 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_20px_rgba(189,157,255,0.05)]">
+<!-- Social Buttons -->
+<div class="flex flex-col gap-3 mb-8">
+<button class="w-full bg-white text-[#000000] font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-3 hover:bg-gray-100 transition-all active:scale-[0.98]">
+<img alt="Google Logo" class="w-5 h-5" data-alt="Official Google G logo with standard colors on a small white circular background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCykLXy0TUgPhcz6obm8iTa3Fs9KoWC38ts95ZmIaFHpqAarjh9EzudT8WU2nb2kQOcJBzZcObi1p0XUQrCZMRQIMj9pY2QbuFS0y7mG8y35ydZTIRMg7aerHGkPISdMR4kV1--q10c8R204INaZgq-FJizbBDsechjeeHjK43UQA0IQAsq32S8CrdFK5LH1i5lQkaEfdI6PPJwS7tfCe9JRJ7yMQc_wXJdvRfS8svCeHD5pvkONRRXYiYqU6vxRGdKbdJ1UlEUfxQ"/>
+<span>Continue with Google</span>
+</button>
+<button class="w-full bg-surface-container-highest text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-3 hover:bg-surface-container-high transition-all border border-outline-variant/20 active:scale-[0.98]">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+<span>Continue with GitHub</span>
+</button>
+</div>
+<!-- Divider -->
+<div class="flex items-center gap-4 mb-8">
+<div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+<span class="text-on-surface-variant text-xs uppercase tracking-widest font-bold">or</span>
+<div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+</div>
+<!-- Form Section -->
+<form class="space-y-5">
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter px-1">Email Address</label>
+<input class="w-full bg-surface-container-lowest border-none focus:ring-1 focus:ring-primary text-on-surface rounded-lg py-3 px-4 font-mono text-sm transition-all placeholder:text-on-surface-variant/30" placeholder="engineer@alpha.com" type="email"/>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between items-center px-1">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Password</label>
+<a class="text-xs font-bold text-primary hover:underline" href="#">Forgot?</a>
+</div>
+<input class="w-full bg-surface-container-lowest border-none focus:ring-1 focus:ring-primary text-on-surface rounded-lg py-3 px-4 font-mono text-sm transition-all placeholder:text-on-surface-variant/30" placeholder="••••••••" type="password"/>
+</div>
+<button class="w-full bg-primary text-on-primary-fixed font-black uppercase tracking-widest py-4 rounded-lg mt-4 shadow-[0_0_15px_#bd9dff44] hover:shadow-[0_0_25px_#bd9dff66] transition-all duration-300 active:scale-95" type="submit">
+                    Sign In
+                </button>
+</form>
+</div>
+<!-- Footer -->
+<div class="mt-8 text-center">
+<p class="text-on-surface-variant text-sm">
+                Don't have an account? 
+                <a class="text-primary font-bold hover:text-primary-container transition-colors ml-1" href="#">Sign up</a>
+</p>
+</div>
+</main>
+<!-- Decorative Corner Accents -->
+<div class="fixed top-0 left-0 p-8 opacity-20 hidden md:block">
+<div class="text-[10px] font-mono text-primary leading-tight">
+            SYSTEM_STATUS: ONLINE<br/>
+            ENCRYPTION: AES_256<br/>
+            CORE: RESCUME_V4.0
+        </div>
+</div>
+<div class="fixed bottom-0 right-0 p-8 opacity-20 hidden md:block">
+<div class="text-[10px] font-mono text-primary leading-tight text-right">
+            COORD: 40.7128° N, 74.0060° W<br/>
+            SESSION_TOKEN: NULL_AUTH<br/>
+            RES_ARCH: OBSIDIAN
+        </div>
+</div>
+</body></html>
