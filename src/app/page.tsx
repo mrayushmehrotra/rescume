@@ -3,6 +3,8 @@
 import { Progress } from "@/components/ui/interfaces-progress";
 import { CTASection } from "@/components/ui/hero-dithering-card";
 import { Features } from "@/components/ui/features-5";
+import { PricingSection } from "@/components/pricing-section";
+import { Newsletter } from "@/components/ui/newsletter";
 import {
   ImageComparison,
   ImageComparisonImage,
@@ -112,10 +114,12 @@ export default function LoginPage() {
                 </div>
               </ImageComparisonSlider>
             </ImageComparison>
-          
+
           </div>
         </div>
 
+        <PricingSection />
+        <Newsletter />
       </div>
 
     </main>

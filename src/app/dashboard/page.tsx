@@ -8,6 +8,7 @@ import {
   Search as SearchIcon,
 } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const resumes = [
   {
@@ -41,6 +42,8 @@ const resumes = [
 ];
 
 export default function DashboardPage() {
+  const pathname = usePathname();
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 antialiased">
       {/* Top Navbar */}
@@ -61,21 +64,23 @@ export default function DashboardPage() {
           <div className="hidden md:flex items-center gap-6">
             <Link
               href="/dashboard"
-              className="text-primary border-b-2 border-primary pb-1 font-medium tracking-tight"
+              className={
+                pathname === "/dashboard"
+                  ? "text-primary border-b-2 border-primary pb-1 font-medium tracking-tight"
+                  : "text-muted-foreground hover:text-foreground transition-colors font-medium tracking-tight"
+              }
             >
               Dashboard
             </Link>
             <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground transition-colors font-medium tracking-tight"
+              href="/settings"
+              className={
+                pathname === "/settings"
+                  ? "text-primary border-b-2 border-primary pb-1 font-medium tracking-tight"
+                  : "text-muted-foreground hover:text-foreground transition-colors font-medium tracking-tight"
+              }
             >
-              Templates
-            </Link>
-            <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground transition-colors font-medium tracking-tight"
-            >
-              History
+              Settings
             </Link>
           </div>
         </div>
@@ -133,7 +138,7 @@ export default function DashboardPage() {
 
         {/* Bento Grid Layout for Resumes */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-       
+
 
           {/* Add New Resume Placeholder */}
           <button
