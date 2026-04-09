@@ -45,7 +45,7 @@ Landing a job today means customizing your resume for every application. Rescume
 |---|---|
 | **Authentication** | Clerk |
 | **Frontend** | Next.js (App Router) + Tailwind CSS + shadcn/ui |
-| **Code Editor** | Monaco Editor |
+| **Code Editor** | Monaco Editor |`
 | **AI Model** | OpenAI GPT-4o / Gemini |
 | **LaTeX Rendering** | LaTeX.js / PDF compile endpoint |
 | **API Layer** | tRPC + OpenAPI |
@@ -54,6 +54,7 @@ Landing a job today means customizing your resume for every application. Rescume
 | **Storage** | Firebase Storage |
 | **Analytics** | PostHog |
 | **Error Monitoring** | Sentry |
+| **Github CI/CD** | Github Actions |
 
 ---
 
