@@ -1,5 +1,6 @@
 "use client";
 
+import { UserButton } from "@clerk/nextjs";
 import {
   ArrowLeft,
   BrainCircuit,
@@ -17,7 +18,6 @@ import {
   Settings2,
   Sparkles,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Progress } from "@/components/ui/interfaces-progress";
@@ -60,14 +60,13 @@ export default function EditorPage() {
           >
             Save
           </button>
-          <div className="h-8 w-8 rounded-full overflow-hidden border border-primary/20 ml-2">
-            <Image
-              alt="User Avatar"
-              className="w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop"
-              width={32}
-              height={32}
-              unoptimized
+          <div className="ml-2 flex items-center">
+            <UserButton
+              appearance={{
+                elements: {
+                  avatarBox: "h-8 w-8 border border-primary/20 rounded-full"
+                }
+              }}
             />
           </div>
         </div>
@@ -117,33 +116,30 @@ export default function EditorPage() {
             <button
               type="button"
               onClick={() => setActiveTab("latex")}
-              className={`px-6 py-3 text-xs font-mono font-bold border-b-2 transition-all ${
-                activeTab === "latex"
-                  ? "text-primary border-primary"
-                  : "text-muted-foreground border-transparent"
-              }`}
+              className={`px-6 py-3 text-xs font-mono font-bold border-b-2 transition-all ${activeTab === "latex"
+                ? "text-primary border-primary"
+                : "text-muted-foreground border-transparent"
+                }`}
             >
               LaTeX Source
             </button>
             <button
               type="button"
               onClick={() => setActiveTab("cv")}
-              className={`px-6 py-3 text-xs font-mono font-bold border-b-2 transition-all ${
-                activeTab === "cv"
-                  ? "text-primary border-primary"
-                  : "text-muted-foreground border-transparent"
-              }`}
+              className={`px-6 py-3 text-xs font-mono font-bold border-b-2 transition-all ${activeTab === "cv"
+                ? "text-primary border-primary"
+                : "text-muted-foreground border-transparent"
+                }`}
             >
               CV Mode
             </button>
             <button
               type="button"
               onClick={() => setActiveTab("cl")}
-              className={`px-6 py-3 text-xs font-mono font-bold border-b-2 transition-all ${
-                activeTab === "cl"
-                  ? "text-primary border-primary"
-                  : "text-muted-foreground border-transparent"
-              }`}
+              className={`px-6 py-3 text-xs font-mono font-bold border-b-2 transition-all ${activeTab === "cl"
+                ? "text-primary border-primary"
+                : "text-muted-foreground border-transparent"
+                }`}
             >
               Cover Letter
             </button>

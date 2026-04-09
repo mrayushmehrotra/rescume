@@ -1,12 +1,12 @@
 "use client";
 
+import { UserButton } from "@clerk/nextjs";
 import {
   FileText,
   MoreVertical as MoreVerticalIcon,
   Plus as PlusIcon,
   Search as SearchIcon,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 const resumes = [
@@ -93,14 +93,13 @@ export default function DashboardPage() {
           >
             <span className="material-symbols-outlined">auto_awesome</span>
           </button>
-          <div className="h-8 w-8 rounded-full overflow-hidden border border-border/50">
-            <Image
-              alt="User Avatar"
-              className="w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop"
-              width={32}
-              height={32}
-              unoptimized
+          <div className="ml-2 flex items-center">
+            <UserButton
+              appearance={{
+                elements: {
+                  avatarBox: "h-8 w-8 border border-border/50 rounded-full"
+                }
+              }}
             />
           </div>
         </div>
@@ -134,53 +133,7 @@ export default function DashboardPage() {
 
         {/* Bento Grid Layout for Resumes */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {resumes.map((resume) => (
-            <div
-              key={resume.id}
-              className="group relative bg-card rounded-xl p-1 transition-all duration-300 hover:scale-[1.02]"
-            >
-              <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-              <div className="relative bg-card rounded-lg p-6 h-full flex flex-col border border-white/5 hover:border-primary/30 transition-colors shadow-2xl">
-                <div className="flex justify-between items-start mb-6">
-                  <div className="h-12 w-10 bg-muted/20 rounded-md flex items-center justify-center border border-border/30">
-                    <FileText
-                      className="text-muted-foreground group-hover:text-primary transition-colors"
-                      size={20}
-                    />
-                  </div>
-                  <button
-                    type="button"
-                    className="text-muted-foreground hover:text-foreground p-1 rounded-md hover:bg-foreground/5 transition-colors"
-                  >
-                    <MoreVerticalIcon size={20} />
-                  </button>
-                </div>
-                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-2">
-                  {resume.title}
-                </h3>
-                <p className="text-xs font-mono text-muted-foreground mb-6">
-                  Last edited: {resume.date}
-                </p>
-                <div className="mt-auto flex flex-wrap gap-2 uppercase tracking-widest font-black text-[10px]">
-                  {resume.tags.includes("Tailored") && (
-                    <span className="px-2 py-1 bg-primary/10 text-primary rounded border border-primary/20">
-                      Tailored
-                    </span>
-                  )}
-                  {resume.tags.includes("Cover Letter") && (
-                    <span className="px-2 py-1 bg-destructive/10 text-destructive rounded border border-destructive/20">
-                      Cover Letter
-                    </span>
-                  )}
-                  {resume.tags.includes("Draft") && (
-                    <span className="px-2 py-1 bg-muted/10 text-muted-foreground rounded border border-border/50">
-                      Draft
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
+       
 
           {/* Add New Resume Placeholder */}
           <button
