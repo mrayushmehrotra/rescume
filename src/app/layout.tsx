@@ -1,6 +1,7 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { TRPCProvider } from "@/components/providers/trpc-provider";
 import "./globals.css";
 
 const geist = localFont({
@@ -48,7 +49,9 @@ export default function RootLayout({
           className="min-h-full flex flex-col bg-background text-foreground tracking-tight"
           suppressHydrationWarning
         >
-          {children}
+          <TRPCProvider>
+            {children}
+          </TRPCProvider>
         </body>
       </html>
     </ClerkProvider>

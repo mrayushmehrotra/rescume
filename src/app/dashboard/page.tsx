@@ -6,43 +6,37 @@ import {
   MoreVertical as MoreVerticalIcon,
   Plus as PlusIcon,
   Search as SearchIcon,
+  Clock,
+  Loader2,
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-const resumes = [
-  {
-    id: 1,
-    title: "Senior Backend Engineer — Stripe",
-    date: "Oct 24, 2023",
-    tags: ["Tailored", "Cover Letter"],
-    status: "tailored",
-  },
-  {
-    id: 2,
-    title: "Full Stack Developer — Vercel",
-    date: "Oct 12, 2023",
-    tags: ["Draft"],
-    status: "draft",
-  },
-  {
-    id: 3,
-    title: "System Architect — General Motors",
-    date: "Sep 28, 2023",
-    tags: ["Tailored"],
-    status: "tailored",
-  },
-  {
-    id: 4,
-    title: "Cloud Security Lead — AWS",
-    date: "Aug 15, 2023",
-    tags: ["Draft", "Cover Letter"],
-    status: "draft",
-  },
-];
+import { usePathname, useRouter } from "next/navigation";
+import { trpc } from "@/lib/trpc";
+import { useState } from "react";
 
 export default function DashboardPage() {
   const pathname = usePathname();
+  const router = useRouter();
+  const [isCreating, setIsCreating] = useState(false);
+
+  // Fetch resumes
+  const { data: resumes, isLoading } = trpc.resume.list.useQuery();
+
+  // Create resume mutation
+  const createResume = trpc.resume.create.useMutation({
+    onSuccess: (data) => {
+      router.push(`/editor/${data.id}`);
+    },
+    onSettled: () => {
+      setIsCreating(false);
+    }
+  });
+
+  const handleCreateNew = async () => {
+    if (isCreating) return;
+    setIsCreating(true);
+    createResume.mutate({ title: "Untitled Resume" });
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 antialiased">
@@ -87,9 +81,11 @@ export default function DashboardPage() {
         <div className="flex items-center gap-4">
           <button
             type="button"
-            className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold bg-primary text-primary-foreground scale-95 active:opacity-80 transition-transform hover:bg-primary/90 shadow-[0_0_15px_rgba(189,157,255,0.3)]"
+            onClick={handleCreateNew}
+            disabled={isCreating}
+            className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold bg-primary text-primary-foreground scale-95 active:opacity-80 transition-transform hover:bg-primary/90 shadow-[0_0_15px_rgba(189,157,255,0.3)] disabled:opacity-50"
           >
-            <PlusIcon size={16} strokeWidth={3} />
+            {isCreating ? <Loader2 className="animate-spin" size={16} /> : <PlusIcon size={16} strokeWidth={3} />}
             New Resume
           </button>
           <button
@@ -123,81 +119,67 @@ export default function DashboardPage() {
               top-tier opportunities.
             </p>
           </div>
-          <div className="relative group w-full md:w-80 font-mono">
-            <SearchIcon
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground group-focus-within:text-primary transition-colors"
-              size={18}
-            />
-            <input
-              className="w-full bg-card/50 border-none rounded-lg py-3 pl-10 pr-4 text-foreground placeholder:text-muted-foreground/50 focus:ring-1 focus:ring-primary/50 text-sm transition-all"
-              placeholder="Search by role or company..."
-              type="text"
-            />
-          </div>
         </header>
 
         {/* Bento Grid Layout for Resumes */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-
           {/* Add New Resume Placeholder */}
           <button
             type="button"
-            className="group relative bg-card/20 border-2 border-dashed border-border/30 rounded-xl p-6 flex flex-col items-center justify-center gap-4 transition-all hover:border-primary/50 hover:bg-primary/5 min-h-[220px]"
+            onClick={handleCreateNew}
+            disabled={isCreating}
+            className="group relative bg-card/20 border-2 border-dashed border-border/30 rounded-xl p-6 flex flex-col items-center justify-center gap-4 transition-all hover:border-primary/50 hover:bg-primary/5 min-h-[240px] disabled:opacity-50"
           >
             <div className="w-12 h-12 rounded-full bg-card flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-              <PlusIcon className="text-muted-foreground group-hover:text-primary transition-colors" />
+              {isCreating ? <Loader2 className="animate-spin text-primary" /> : <PlusIcon className="text-muted-foreground group-hover:text-primary transition-colors" />}
             </div>
             <div className="text-center">
               <span className="block text-foreground font-bold">
-                New Resume
+                {isCreating ? "Creating..." : "New Resume"}
               </span>
               <span className="block text-xs text-muted-foreground">
                 Start from a template or import
               </span>
             </div>
           </button>
-        </div>
 
-        {/* AI Insights Floating Banner */}
-        <section className="mt-16 relative overflow-hidden rounded-2xl bg-card/30 backdrop-blur-xl border border-white/5 p-8">
-          <div className="absolute top-0 left-0 w-64 h-64 bg-primary/10 blur-[100px] -z-10"></div>
-          <div className="flex flex-col md:flex-row gap-8 items-center justify-between">
-            <div className="flex gap-6 items-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20">
-                <span
-                  className="material-symbols-outlined text-primary text-3xl"
-                  style={{ fontVariationSettings: "'FILL' 1" }}
-                >
-                  psychology
-                </span>
-              </div>
-              <div>
-                <h4 className="text-xl font-bold text-foreground">
-                  Career Optimization Insight
-                </h4>
-                <p className="text-muted-foreground mt-1">
-                  Based on current market trends, adding{" "}
-                  <span className="text-primary/80 font-mono font-bold italic">
-                    Rust
-                  </span>{" "}
-                  or{" "}
-                  <span className="text-primary/80 font-mono font-bold italic">
-                    WebAssembly
-                  </span>{" "}
-                  could increase your response rate by 24% for System Architect
-                  roles.
-                </p>
-              </div>
+          {/* Render real resumes */}
+          {isLoading ? (
+            <div className="col-span-full flex justify-center py-20">
+              <Loader2 className="animate-spin text-primary/40" size={40} />
             </div>
-            <button
-              type="button"
-              className="whitespace-nowrap px-6 py-2 rounded-lg bg-card/50 text-primary border border-primary/20 hover:bg-primary/10 transition-all font-bold text-sm tracking-tight"
-            >
-              Analyze My Profile
-            </button>
-          </div>
-        </section>
+          ) : (
+            resumes?.map((resume) => (
+              <Link
+                key={resume.id}
+                href={`/editor/${resume.id}`}
+                className="group relative bg-card/30 border border-border/50 rounded-2xl p-6 hover:border-primary/30 hover:bg-card/50 transition-all hover:shadow-[0_10px_40px_rgba(0,0,0,0.1)] flex flex-col justify-between h-[240px]"
+              >
+                <div className="flex justify-between items-start">
+                  <div className="p-2.5 rounded-xl bg-primary/10 text-primary">
+                    <FileText size={22} />
+                  </div>
+                  <button className="p-1 hover:bg-foreground/5 rounded-lg transition-colors text-muted-foreground hover:text-foreground">
+                    <MoreVerticalIcon size={20} />
+                  </button>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="font-bold text-lg leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                      {resume.title}
+                    </h3>
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground font-medium">
+                      <span className="flex items-center gap-1">
+                        <Clock size={12} /> {new Date(resume.updatedAt).toLocaleDateString()}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))
+          )}
+        </div>
       </main>
 
       {/* Bottom Navigation (Mobile Only) */}
@@ -244,6 +226,43 @@ export default function DashboardPage() {
           </span>
         </button>
       </div>
+    </div>
+  );
+}
+
+function TemplateCard({
+  title,
+  description,
+  tag,
+  color,
+  icon
+}: {
+  title: string;
+  description: string;
+  tag: string;
+  color: string;
+  icon: string;
+}) {
+  return (
+    <div className="group relative bg-card/40 border border-border/50 rounded-xl p-5 hover:border-primary/40 hover:bg-card/60 transition-all cursor-pointer flex flex-col gap-4">
+      <div className={`w-10 h-10 rounded-lg ${color} flex items-center justify-center`}>
+        <span className="material-symbols-outlined text-primary text-xl">{icon}</span>
+      </div>
+      <div>
+        <div className="flex items-center gap-2 mb-1">
+          <h3 className="font-bold text-sm tracking-tight text-foreground">{title}</h3>
+          <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded uppercase font-black tracking-tighter">
+            {tag}
+          </span>
+        </div>
+        <p className="text-xs text-muted-foreground leading-relaxed">{description}</p>
+      </div>
+      <button
+        type="button"
+        className="mt-2 w-full py-2 bg-foreground/5 text-foreground text-[10px] font-black uppercase tracking-widest rounded-md opacity-0 group-hover:opacity-100 transition-opacity hover:bg-primary hover:text-white"
+      >
+        Use Template
+      </button>
     </div>
   );
 }

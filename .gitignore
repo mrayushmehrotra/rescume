@@ -44,3 +44,5 @@ next-env.d.ts
 .code/mcp.json
 fetch_stitch.py
 stitch_output/
+
+/src/generated/prisma
