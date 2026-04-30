@@ -46,7 +46,7 @@ next-env.d.ts
 fetch_stitch.py
 stitch_output/
 
-/src/generated/prisma
+
 
 # clerk configuration (can include secrets)
 /.clerk/
