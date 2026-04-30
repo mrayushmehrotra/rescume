@@ -39,8 +39,9 @@ export default function LoginPage() {
     <main className="relative min-h-screen flex flex-col items-center justify-start overflow-x-hidden bg-background">
       {/* Loading Overlay */}
       <div
-        className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-all duration-700 ease-in-out ${isLoaded ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
-          }`}
+        className={`fixed inset-0 z-100 flex flex-col items-center justify-center bg-background transition-all duration-700 ease-in-out ${
+          isLoaded ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
+        }`}
       >
         <div className="w-full max-w-[240px] flex flex-col gap-6 items-center px-6">
           <div className="flex items-center gap-3 mb-2 animate-pulse">
@@ -70,8 +71,9 @@ export default function LoginPage() {
 
       {/* Content Canvas */}
       <div
-        className={`w-full transition-all duration-1000 delay-300 flex flex-col ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
+        className={`w-full transition-all duration-1000 delay-300 flex flex-col ${
+          isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
       >
         <Show when="signed-out">
           <CTASection href="/sign-in" label="Get Started" />
@@ -88,13 +90,20 @@ export default function LoginPage() {
         </div>
         <div className="w-full max-w-5xl mx-auto px-6 py-24 flex flex-col items-center gap-12">
           <div className="text-center">
-            <h2 className="text-3xl font-heading mb-4">Standard vs. Rescume AI</h2>
+            <h2 className="text-3xl font-heading mb-4">
+              Standard vs. Rescume AI
+            </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              We only support Latex Coded resumes. Slide to see how our AI transforms basic bullet points into high-impact, performance-oriented highlights.
+              We only support Latex Coded resumes. Slide to see how our AI
+              transforms basic bullet points into high-impact,
+              performance-oriented highlights.
             </p>
           </div>
           <div className="w-full relative group">
-            <ImageComparison className="aspect-16/9 w-full rounded-2xl border border-border shadow-2xl" enableHover>
+            <ImageComparison
+              className="aspect-16/9 w-full rounded-2xl border border-border shadow-2xl"
+              enableHover
+            >
               <ImageComparisonImage
                 src="/simple_resume.png"
                 className="object-contain"
@@ -104,24 +113,23 @@ export default function LoginPage() {
               <ImageComparisonImage
                 src="/latex_resume.jpg"
                 className="object-contain "
-
                 alt="AI Optimized Resume After"
                 position="left"
               />
               <ImageComparisonSlider className="w-1 bg-primary/50 backdrop-blur-md">
                 <div className="absolute top-1/2 left-1/2 size-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-background border-4 border-primary shadow-xl flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary scale-75 select-none">swap_horiz</span>
+                  <span className="material-symbols-outlined text-primary scale-75 select-none">
+                    swap_horiz
+                  </span>
                 </div>
               </ImageComparisonSlider>
             </ImageComparison>
-
           </div>
         </div>
 
         <PricingSection />
         <Newsletter />
       </div>
-
     </main>
   );
 }
