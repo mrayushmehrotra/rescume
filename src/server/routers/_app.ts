@@ -1,8 +1,5 @@
 import { router } from '../trpc';
-import { resumeRouter } from './resume';
 
-export const appRouter = router({
-    resume: resumeRouter,
-});
+export const appRouter = router({});
 
 export type AppRouter = typeof appRouter;

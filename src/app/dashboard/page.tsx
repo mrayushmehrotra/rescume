@@ -29,7 +29,7 @@ export default function DashboardPage() {
     },
     onSettled: () => {
       setIsCreating(false);
-    }
+    },
   });
 
   const handleCreateNew = async () => {
@@ -85,7 +85,11 @@ export default function DashboardPage() {
             disabled={isCreating}
             className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold bg-primary text-primary-foreground scale-95 active:opacity-80 transition-transform hover:bg-primary/90 shadow-[0_0_15px_rgba(189,157,255,0.3)] disabled:opacity-50"
           >
-            {isCreating ? <Loader2 className="animate-spin" size={16} /> : <PlusIcon size={16} strokeWidth={3} />}
+            {isCreating ? (
+              <Loader2 className="animate-spin" size={16} />
+            ) : (
+              <PlusIcon size={16} strokeWidth={3} />
+            )}
             New Resume
           </button>
           <button
@@ -98,8 +102,8 @@ export default function DashboardPage() {
             <UserButton
               appearance={{
                 elements: {
-                  avatarBox: "h-8 w-8 border border-border/50 rounded-full"
-                }
+                  avatarBox: "h-8 w-8 border border-border/50 rounded-full",
+                },
               }}
             />
           </div>
@@ -131,14 +135,18 @@ export default function DashboardPage() {
             className="group relative bg-card/20 border-2 border-dashed border-border/30 rounded-xl p-6 flex flex-col items-center justify-center gap-4 transition-all hover:border-primary/50 hover:bg-primary/5 min-h-[240px] disabled:opacity-50"
           >
             <div className="w-12 h-12 rounded-full bg-card flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-              {isCreating ? <Loader2 className="animate-spin text-primary" /> : <PlusIcon className="text-muted-foreground group-hover:text-primary transition-colors" />}
+              {isCreating ? (
+                <Loader2 className="animate-spin text-primary" />
+              ) : (
+                <PlusIcon className="text-muted-foreground group-hover:text-primary transition-colors" />
+              )}
             </div>
             <div className="text-center">
               <span className="block text-foreground font-bold">
                 {isCreating ? "Creating..." : "New Resume"}
               </span>
               <span className="block text-xs text-muted-foreground">
-                Start from a template or import
+                Ssdasdtart from a template or import
               </span>
             </div>
           </button>
@@ -171,7 +179,8 @@ export default function DashboardPage() {
                     </h3>
                     <div className="flex items-center gap-3 text-xs text-muted-foreground font-medium">
                       <span className="flex items-center gap-1">
-                        <Clock size={12} /> {new Date(resume.updatedAt).toLocaleDateString()}
+                        <Clock size={12} />{" "}
+                        {new Date(resume.updatedAt).toLocaleDateString()}
                       </span>
                     </div>
                   </div>
@@ -235,7 +244,7 @@ function TemplateCard({
   description,
   tag,
   color,
-  icon
+  icon,
 }: {
   title: string;
   description: string;
@@ -245,17 +254,25 @@ function TemplateCard({
 }) {
   return (
     <div className="group relative bg-card/40 border border-border/50 rounded-xl p-5 hover:border-primary/40 hover:bg-card/60 transition-all cursor-pointer flex flex-col gap-4">
-      <div className={`w-10 h-10 rounded-lg ${color} flex items-center justify-center`}>
-        <span className="material-symbols-outlined text-primary text-xl">{icon}</span>
+      <div
+        className={`w-10 h-10 rounded-lg ${color} flex items-center justify-center`}
+      >
+        <span className="material-symbols-outlined text-primary text-xl">
+          {icon}
+        </span>
       </div>
       <div>
         <div className="flex items-center gap-2 mb-1">
-          <h3 className="font-bold text-sm tracking-tight text-foreground">{title}</h3>
+          <h3 className="font-bold text-sm tracking-tight text-foreground">
+            {title}
+          </h3>
           <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded uppercase font-black tracking-tighter">
             {tag}
           </span>
         </div>
-        <p className="text-xs text-muted-foreground leading-relaxed">{description}</p>
+        <p className="text-xs text-muted-foreground leading-relaxed">
+          {description}
+        </p>
       </div>
       <button
         type="button"
