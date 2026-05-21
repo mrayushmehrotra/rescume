@@ -14,7 +14,7 @@ Landing a job today means customizing your resume for every application. Rescume
 
 | Feature | Description |
 |---|---|
-| 🔐 **Clerk Authentication** | Secure sign-in / sign-up via Clerk (OAuth, email/password) |
+| 🔓 **No Authentication** | App is publicly accessible for now |
 | 📂 **Resume Dashboard** | History of all saved resumes, browsable and manageable |
 | ✏️ **AI Resume Editor** | Paste a job description → AI rewrites your resume instantly |
 | 📄 **LaTeX Source Editor** | Full access to the underlying LaTeX code for fine-grained control |
@@ -28,7 +28,7 @@ Landing a job today means customizing your resume for every application. Rescume
 ## User Journey
 
 ### 1. Login Screen
-Users land on a clean Clerk-powered authentication page. Supports social logins and email/password. After signing in, they are redirected to their personal dashboard.
+Users access the app directly and are taken to their personal dashboard.
 
 ### 2. Dashboard
 The dashboard displays all previously saved resumes as cards, showing the job title, company, and last-edited date. Clicking any card opens the full resume editor for that entry. A **"New Resume"** button starts a fresh editing session.
@@ -81,7 +81,7 @@ The AI engine powering Rescume can:
 
 | Layer | Technology |
 |---|---|
-| **Authentication** | [Clerk](https://clerk.dev) |
+| **Authentication** | None (public access) |
 | **Frontend** | Next.js (App Router) |
 | **Styling** | Tailwind CSS |
 | **Code Editor** | Monaco Editor |
@@ -100,8 +100,6 @@ The AI engine powering Rescume can:
 
 ```
 /                → Marketing / landing page
-/sign-in         → Clerk login
-/sign-up         → Clerk registration
 /dashboard       → Resume history dashboard
 /resume/new      → New resume editor session
 /resume/[id]     → Existing resume editor (LaTeX + AI + Preview)
