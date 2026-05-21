@@ -1,17 +1,16 @@
 "use client";
 
-import { Progress } from "@/components/ui/interfaces-progress";
-import { CTASection } from "@/components/ui/hero-dithering-card";
-import { Features } from "@/components/ui/features-5";
+import { useEffect, useState } from "react";
 import { PricingSection } from "@/components/pricing-section";
-import { Newsletter } from "@/components/ui/newsletter";
+import { Features } from "@/components/ui/features-5";
+import { CTASection } from "@/components/ui/hero-dithering-card";
 import {
   ImageComparison,
   ImageComparisonImage,
   ImageComparisonSlider,
 } from "@/components/ui/image-comparison";
-import { Show } from "@clerk/nextjs";
-import { useEffect, useState } from "react";
+import { Progress } from "@/components/ui/interfaces-progress";
+import { Newsletter } from "@/components/ui/newsletter";
 
 export default function LoginPage() {
   const [progress, setProgress] = useState(0);
@@ -75,13 +74,7 @@ export default function LoginPage() {
           isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
         }`}
       >
-        <Show when="signed-out">
-          <CTASection href="/sign-in" label="Get Started" />
-        </Show>
-
-        <Show when="signed-in">
-          <CTASection href="/dashboard" label="Go to Dashboard" />
-        </Show>
+        <CTASection href="/dashboard" label="Get Started" />
 
         {/* Comparison Section */}
 

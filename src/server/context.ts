@@ -1,10 +1,7 @@
-import { auth } from '@clerk/nextjs/server';
-
 export async function createContext() {
-    const { userId } = await auth();
-    return {
-        userId,
-    };
+  return {
+    userId: null,
+  };
 }
 
 export type Context = Awaited<ReturnType<typeof createContext>>;

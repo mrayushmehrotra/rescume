@@ -18,6 +18,12 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "a11y": {
+        "noStaticElementInteractions": "off"
+      },
+      "performance": {
+        "noImgElement": "off"
+      },
       "suspicious": {
         "noUnknownAtRules": "off"
       }

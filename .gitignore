@@ -47,6 +47,3 @@ fetch_stitch.py
 stitch_output/
 
 
-
-# clerk configuration (can include secrets)
-/.clerk/
